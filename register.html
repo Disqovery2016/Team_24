@@ -1,0 +1,369 @@
+
+<html>
+<head>
+<title>Blood Donation</title>
+<link href="./go/main.css" rel="stylesheet" type="text/css">
+<link href="./go/responsive.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!-- Tool Tip style -->
+
+/* All form elements are within the definition list for this example */
+dl {
+	font: 12px/15px Arial, Helvetica, sans-serif;
+    position: relative;
+    width: 350px;
+}
+dt {
+    clear: both;
+    float:left;
+    width: 130px;
+    padding: 4px 0 2px 0;
+    text-align: left;
+}
+dd {
+    float: left;
+    width: 200px;
+    margin: 0 0 8px 0;
+    padding-left: 6px;
+}
+
+
+/* The hint to Hide and Show */
+.hint {
+   	display: none;
+    position: absolute;
+    width: 200px;
+    margin-top: -12px;
+	margin-left:20px;
+    border: 1px solid #c93;
+    padding: 10px 12px;
+        background: #ffc url(images/pointer.gif) no-repeat -10px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    width: 10px;
+    height: 19px;
+    background: url(images/pointer.gif) left top no-repeat;
+}
+
+
+</style>
+
+<script type="text/javascript">
+function viewEligibility()
+{
+	window.open('eligibility.php?content','Eligibility','width=500,height=600,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');
+}
+function viewTerms()
+{
+	window.open('privacy_policy.php?content','Terms','width=500,height=600,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');
+}
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      oldonload();
+      func();
+    }
+  }
+}
+
+function prepareInputsForHints() {
+	var inputs = document.getElementsByTagName("input");
+	for (var i=0; i<inputs.length; i++){
+		// test to see if the hint span exists first
+		if (inputs[i].parentNode.getElementsByTagName("span")[0]) {
+			// the span exists!  on focus, show the hint
+			inputs[i].onfocus = function () {
+				this.parentNode.getElementsByTagName("span")[0].style.display = "inline";
+			}
+			// when the cursor moves away from the field, hide the hint
+			inputs[i].onblur = function () {
+				this.parentNode.getElementsByTagName("span")[0].style.display = "none";
+			}
+		}
+	}
+	// repeat the same tests as above for selects
+	var selects = document.getElementsByTagName("select");
+	for (var k=0; k<selects.length; k++){
+		if (selects[k].parentNode.getElementsByTagName("span")[0]) {
+			selects[k].onfocus = function () {
+				this.parentNode.getElementsByTagName("span")[0].style.display = "inline";
+			}
+			selects[k].onblur = function () {
+				this.parentNode.getElementsByTagName("span")[0].style.display = "none";
+			}
+		}
+	}
+}
+addLoadEvent(prepareInputsForHints);
+
+
+</script>
+<link href="css/png_fix.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="forest">
+      <div class="contentarea"><h2>Home</h2></div>
+     <div><img src="./go/fo.jpg" /></div>
+   
+</div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" class="bg_leafs"><table width="738" border="0" cellspacing="0" cellpadding="0" class="wrapper">
+        
+        <tr>
+          <td align="center"><table width="715" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="main_menu">
+              <tr><td  valign="middle">
+                  
+                    <div class="main_menu" style="background-color: red"><table border="0" cellspacing="0" cellpadding="0" >
+              <tr><ul>
+                <li><a href="Home.html">Home</a>
+				</li>                                                                      
+                <li><a href="register.html">Register</a>
+                </li>
+                <li><a href="Product.html">Product</a></li>
+                <li style="background-image:none;"><a href="ContactUs.html">Contact Us</a></li>
+              
+                      </ul>
+            </div></tr>
+                </table></td></tr>
+            </table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FEEFDA">
+                          <tr>
+                            <td height="350" align="center" valign="top"><div class="content" >
+                                <h1><strong>Register as a Buyer</strong></h1>
+
+<link rel="stylesheet" type="text/css" media="all" href="css/forms.css" />
+<!-- import the calendar styles -->
+<link rel="stylesheet" type="text/css" media="all" href="scripts/calendar/aqua.css" title="Aqua" />
+<!-- import the calendar script -->
+<script type="text/javascript" src="scripts/calendar/calendar.js"></script>
+<!-- import the language module -->
+<script type="text/javascript" src="scripts/calendar/calendar-en.js"></script>
+<!-- helper script that uses the calendar -->
+<script type="text/javascript" src="scripts/calendar/helper.js"></script>
+<script src="scripts/validator.js"></script>
+								<br />                                <form action="?ac=register" method="post" name="frmRegister" id="frmRegister" />
+                                <fieldset>
+                                <legend> <b> Login Information </b> </legend>
+                                <table cellspacing="3" cellpadding="1" width="420">
+                                  <tr>
+                                    <td width="205" align="left" valign="top">Full Name<span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="buyer_name" type="text" class="textE" id="buyer_name" value="" maxlength="30"  title="Enter your Full Name"/>
+                                      <span class="hint"><b>Full Name<br />
+                                      </b>Please fill your Fullname.<br />
+                                      Maximum 30 characters. <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Username<span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="username" type="text" class="textE" id="username" value="" maxlength="20" title="Enter the username"/>
+                                      <span class="hint"><b>Username<br />
+                                      </b> Please fill your username, do not include spaces.<br />
+                                      <b>Eg:</b> pralay_nawasare, pralay123 <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Password<span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="password" type="password" class="textE" id="label" title="Enter the password" maxlength="20" />
+                                      <span class="hint"><b>Password<br />
+                                      </b> Please enter your password. Minimum 6 characters, case sensitive.<br />
+                                      <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Confirm Password <span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="cpassword" type="password" class="textE" id="label2" title="Enter the Confirm Password" maxlength="20" />
+                                      <span class="hint"><b>Confirm Password<br />
+                                      </b> Please Re-enter your password exactly as entered in previous field.<br />
+                                      <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                </table>
+                                </fieldset>
+                                <br />
+                                <fieldset>
+                                <legend>  <b>  Buyer Information </b> </legend>
+                                <table cellspacing="3" cellpadding="1" width="420">
+                                  <tr>
+                                    <td width="205" align="left" valign="top" class="login_name">Date of Birth <span class="red">*</span> </td>
+                                    <td align="left" valign="top">
+									<!-- SO: Date of Birth -->
+									<select name="dd" id="dd"  class='textE'><br />
+<b>Warning</b>:  str_pad() expects parameter 4 to be long, string given in <b>/home/bbindia/public_html/includes/functions/functions_forms.php</b> on line <b>111</b><br />
+<option ></option>
+<br />
+<b>Warning</b>:  str_pad() expects parameter 4 to be long, string given in <b>/home/bbindia/public_html/includes/functions/functions_forms.php</b> on line <b>111</b><br />
+<option ></option>
+<br />
+</select><select name="mm" id="mm"  class='textE'><option  value="1">January</option>
+<option  value="2">February</option>
+<option  value="3">March</option>
+<option  value="4">April</option>
+<option  value="5">May</option>
+<option  value="6">June</option>
+<option  value="7">July</option>
+<option  value="8">August</option>
+<option  value="9">September</option>
+<option  value="10">October</option>
+<option  value="11">November</option>
+<option  value="12">December</option>
+</select><select name="yyyy" id="yyyy"  class='textE'><option >1965</option>
+<option >1966</option>
+<option >1967</option>
+<option >1968</option>
+<option >1969</option>
+<option >1970</option>
+<option >1971</option>
+<option >1972</option>
+<option >1973</option>
+<option >1974</option>
+<option >1975</option>
+<option >1976</option>
+<option >1977</option>
+<option >1978</option>
+<option >1979</option>
+<option >1980</option>
+<option >1981</option>
+<option >1982</option>
+<option >1983</option>
+<option >1984</option>
+<option >1985</option>
+<option >1986</option>
+<option >1987</option>
+<option >1988</option>
+<option >1989</option>
+<option >1990</option>
+<option >1991</option>
+<option >1992</option>
+<option >1993</option>
+<option >1994</option>
+<option >1995</option>
+<option >1996</option>
+</select>
+									<!-- EO: Date of Birth -->									</td></tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Gender<span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="gender" type="radio" title="Select the gender" value="m" checked /> Male <input name="gender" type="radio" value="f"  title="Select the gender" />
+                                      Female
+                                      <span class="hint"><b>Gender</b><br />
+                                       Please select your Gender<br />
+                                      <span class="hint-pointer"></span></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Blood Group<span class="red">*</span> </td>
+                                    <td align="left" valign="top">
+									<select name="bloodgroup" id="bloodgroup"  class='textE'><option value="0">-Select your bloodgroup-</option><option value="A+">A+</option><option value="A1+">A1+</option><option value="A2+">A2+</option><option value="B+">B+</option><option value="A1B+">A1B+</option><option value="A2B+">A2B+</option><option value="AB+">AB+</option><option value="O+">O+</option><option value="A-">A-</option><option value="A1-">A1-</option><option value="A2-">A2-</option><option value="B-">B-</option><option value="A1B-">A1B-</option><option value="A2B-">A2B-</option><option value="AB-">AB-</option><option value="O-">O-</option></select>                                      <span class="hint"><b>Blood Group<br />
+                                      </b> Please select your Blood Group<br />
+                                      <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Weight</td>
+                                    <td align="left" valign="top"><input name="weight" type="text" class="textE" id="weight" value="" size="5" maxlength="5" title="Enter your Weight" />
+                                      <span class="hint"><b>Weight<br />
+                                      </b> Please Enter the Weight<span class="hint-pointer"></span></span> <font color="#999966">Kgs.</font> </td>
+                                  </tr>
+                                </table>
+                                </fieldset>
+                                <br />
+                                <fieldset>
+                                <legend>  <b>  Contact Information </b> </legend>
+                                <table cellspacing="3" cellpadding="1" width="420">
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name"><strong>Phone Number</strong></td>
+                                    <td align="left" valign="top">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name" width="205">- Residence Phone </td>
+                                    <td align="left" valign="top"><input name="res_phno" type="text" class="textE" id="res_phno" value="" maxlength="15" title="Enter your phone number" />
+                                      <span class="hint"><b>Residence Number<br />
+                                      </b> Please enter your Residence Phone Number <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name" width="205">- Office Phone </td>
+                                    <td align="left" valign="top"><input name="off_phno" type="text" class="textE" id="off_phno" value="" maxlength="15" title="Enter your Office number" />
+                                      <span class="hint"><b>Office Number<br />
+                                      </b> Please enter your Office Phone Number <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">- Mobile No. <span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="mob_no" type="text" class="textE" id="mob_no" value="" maxlength="15" title="Enter your Mobile number" />
+                                      <span class="hint"><b>Mobile Number<br />
+                                      </b> Please enter your Mobile Number <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Email ID <span class="red">*</span> </td>
+                                    <td align="left" valign="top"><input name="emailid" type="text" class="textE" id="emailid" value="" maxlength="50" title="Enter your Email id"/>
+                                      <span class="hint"><b>Email Address</b><br />
+                                      Email can contain only letters, numbers, periods (.), @, hyphens (-) and underscores (_). <span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Address</td>
+                                    <td align="left" valign="top"><input name="address1" type="text" class="textE" id="address1" value="" maxlength="25" title="Enter your address" />
+									<span class="hint"><b>Address 1</b><br />
+                                      Type your street address here.<br /><strong>Eg:</strong> #23, ABC Street<span class="hint-pointer"></span></span>
+									  <span class="red">*</span>									</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">&nbsp;</td>
+                                    <td align="left" valign="top"><input name="address2" type="text" class="textE" id="address2" value="" maxlength="25" title="Enter your address" />
+									<span class="hint"><b>Address 2</b><br />
+                                      Type area address here.<br /><strong>Eg:</strong> Opp. RV Theatre, Cheran Nagar<span class="hint-pointer"></span></span>									</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">City<span class="red">*</span> </td>
+                                    <td align="left" valign="top"><select name="city" id="city"  class='textE'><option value="0">-Select your city-</option><option value="1">Agartala</option><option value="2">Agra</option><option value="3">Ahmedabad</option><option value="34">Balia</option><option value="35">Ballabhgarh</option><option value="36">Ballarpur</option><option value="37">Balrampur</option><option value="38">Balurghat West Bengal</option><option value="239">Karimnagar</option><option value="240">Karjat</option><option value="241">Karnal</option><option value="242">Karur</option><option value="243">Karwar</option><option value="244">Kavaratti</option><option value="245">Khamanon</option><option value="445">Srinagar</option><option value="446">Surat</option><option value="464">Tirupathi</option><option value="465">Tirupattur</option><option value="466">Tirupur</option><option value="467">Tiruvarur</option><option value="468">Tzudikong</option><option value="469">Udaipur in Rajasthan</option><option value="470">Udaipur in Tripura</option><option value="471">Udhagamandalam</option><option value="472">Udhampur in Jammu & Kashmir</option><option value="473">Udupi</option><option value="474">Ujjain</option><option value="475">Ulhasnagar</option><option value="476">Unnao</option><option value="477">Uttarpara in West Bengal</option><option value="478">Vadodara</option><option value="479">Vallabh Vidhyanagar</option><option value="480">Valsad</option><option value="481">Vandavasi</option><option value="482">Vapi</option><option value="483">Varanasi</option><option value="484">Vasai</option><option value="485">Vasco da Gama, Goa</option><option value="486">Vellore</option><option value="487">Vidisha</option><option value="488">Vijayawada</option><option value="489">Viluppuram</option><option value="490">Virar</option><option value="491">Virudhachalam</option><option value="492">Visakhapatnam</option><option value="493">Vizianagaram</option><option value="494">Vyara</option><option value="495">Wani</option><option value="496">Warangal</option><option value="497">Wardha</option><option value="498">Wayanad</option></select>                                      <span class="hint"><b>City<br />
+                                      </b> Please Select your City <span class="hint-pointer"></span></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" class="login_name">Message for visitors </td>
+                                    <td align="left" valign="top"><textarea name="message" class="textareaE" id="message" title="Enter your Comments"></textarea>
+                                      <span class="hint"><b>Message for Vistors<br />
+                                      </b>Please Enter your Comments<span class="hint-pointer"></span></span> </td>
+                                  </tr>
+                                </table>
+                                </fieldset>
+                                <br />
+                                <p><script type="text/javascript">
+function Confirm(form){
+alert("Thank you! for registering. We will contact you when we need blood. Regards Pralay and Team "); 
+form.submit();
+}
+</script>
+                                  <input type="button" name="Submit" value="Submit" onClick="Confirm(this.form)">
+                                </p>
+                                </form>
+                            </div></td>
+                          </tr>
+                          <tr>
+                            <td height="17" valign="bottom"></td>
+                          </tr>
+                        </table></td>
+                      <td width="6" valign="top">&nbsp;</td>
+                      
+                    </tr>
+                  </table></td>
+              </tr>
+              
+              </table></td>
+        </tr>
+    </table></td><td><img src="./go/side.jpg"></td>
+  </tr>
+</table> 
+</body>
+</html>
